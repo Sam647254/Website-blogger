@@ -9,23 +9,27 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import net.givreardent.sam.blogger.dialogs.URLSettingDialog;
+import net.givreardent.sam.blogger.internal.Parameters;
+import net.givreardent.sam.blogger.network.BlogAccessor;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        checkURLSetting();
+        FloatingActionButton settingsButton = (FloatingActionButton) findViewById(R.id.fab);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                URLSettingDialog dialog = new URLSettingDialog();
+                dialog.show(getFragmentManager(), "URL setting");
+            }
+        });
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
     }
 
     @Override
@@ -48,5 +52,12 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void checkURLSetting() {
+        String url = Parameters.getPreferences(this).getString(Parameters.URLSetting, null);
+        if (url != null) {
+            BlogAccessor.rootURL = url;
+        }
     }
 }

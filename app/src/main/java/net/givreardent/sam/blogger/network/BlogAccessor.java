@@ -25,7 +25,7 @@ import java.net.URL;
  * Created by Sam on 2015-12-07.
  */
 public class BlogAccessor {
-    private static final String rootURL = "http://10.0.2.2:3000";
+    public static String rootURL = "http://10.0.2.2:3000";
     private static final String interfacePath = "interface";
     private static final String securityPath = "security";
     private static final String tag = "BlogAccessor";
@@ -45,6 +45,7 @@ public class BlogAccessor {
             Log.i("BlogAccessor", request);
             URL url = new URL(urlString);
             connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(10000);
             connection.setDoOutput(true);
             connection.setDoInput(true);
             connection.setRequestProperty("Content-Type", "application/json");

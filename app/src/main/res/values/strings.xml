@@ -4,4 +4,5 @@
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
     <string name="lit_log_in">Log in</string>
+    <string name="lit_base_url">Base URL</string>
 </resources>

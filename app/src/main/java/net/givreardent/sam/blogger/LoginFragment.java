@@ -1,6 +1,7 @@
 package net.givreardent.sam.blogger;
 
 import android.os.AsyncTask;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import net.givreardent.sam.blogger.dialogs.URLSettingDialog;
 import net.givreardent.sam.blogger.internal.HTTPResult;
 import net.givreardent.sam.blogger.internal.Parameters;
 import net.givreardent.sam.blogger.network.BlogAccessor;
@@ -34,7 +36,6 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Show log in progress
-                loginButton.setText("Logging in...");
                 loginButton.setEnabled(false);
                 String username = usernameField.getText().toString();
                 String password = passwordField.getText().toString();
@@ -63,11 +64,10 @@ public class LoginFragment extends Fragment {
         protected void onPostExecute(HTTPResult result) {
             loginButton.setText(R.string.lit_log_in);
             loginButton.setEnabled(true);
-            resultHolder = result;
             if (result == HTTPResult.success) {
                 // Login
                 // For testing purposes
-                Snackbar.make(loginButton, "Login success!", Snackbar.LENGTH_LONG).show();
+                proceedToHomeScreen();
                 Log.i("LoginFragment", Parameters.APIKey);
                 Log.i("LoginFragment", Parameters.ID);
             } else if (result == HTTPResult.unauthorized){
