@@ -72,6 +72,7 @@ public class BlogAccessor {
                 return HTTPResult.other;
             }
         } catch (java.io.IOException e) {
+            Log.e("BlogAccessor", "Error", e);
             return HTTPResult.connection_failure;
         } catch (JSONException e) {
             Log.e("BlogAccessor", "Error", e);

@@ -1,8 +1,13 @@
 <resources>
-    <string name="app_name">5AM Editor</string>
+    <string name="app_name">5AM Updater</string>
+    <string name="app_name_full">5AM Website Updater</string>
     <string name="action_settings">Settings</string>
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
     <string name="lit_log_in">Log in</string>
     <string name="lit_base_url">Base URL</string>
+    <string name="lit_statuses">Statuses</string>
+    <string name="lit_posts">Posts</string>
+    <string name="lit_users">Users</string>
+    <string name="lit_timelapse">Time-lapse</string>
 </resources>

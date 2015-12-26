@@ -1,5 +1,6 @@
 package net.givreardent.sam.blogger;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -50,7 +51,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void proceedToHomeScreen() {
-
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
     }
 
     private class LoginTask extends AsyncTask<String, Void, HTTPResult> {
