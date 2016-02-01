@@ -1,6 +1,5 @@
 package net.givreardent.sam.blogger;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -43,7 +42,7 @@ public class MainFragment extends Fragment {
 
             @Override
             public int getCount() {
-                return 4;
+                return 1;
             }
 
             @Override

@@ -10,4 +10,8 @@
     <string name="lit_posts">Posts</string>
     <string name="lit_users">Users</string>
     <string name="lit_timelapse">Time-lapse</string>
+    <string name="no_status_selected">No status selected</string>
+    <string name="lit_finish">Finish</string>
+    <string name="lit_edit">Edit</string>
+    <string name="lit_cancel">Cancel</string>
 </resources>
